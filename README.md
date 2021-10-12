@@ -19,7 +19,7 @@ A simple fun weather dashboard created with html, css, and javascript.
 
 ## Preview
 `
-    ![Preview Of Sophk Weather Gadget webpage](./assets/images/screenshot.png)
+    ![Preview Of Sophk Weather Gadget webpage](.\assests\images\screenshot.png)
 
 
 ## Link to Github Repo
