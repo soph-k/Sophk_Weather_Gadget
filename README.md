@@ -1,10 +1,13 @@
 # PinkSO Weather Gadget
 
 ## Description
+
 A simple fun weather dashboard created with html, css, and javascript.
 
+
 ## Link To Deployed Page
-    Live Page(https://soph-k.github.io/sophk_weather_gadget/)
+`
+    [Live Page](https://soph-k.github.io/sophk_weather_gadget/)
 
 
 ## Tech
@@ -23,8 +26,8 @@ A simple fun weather dashboard created with html, css, and javascript.
 
 
 ## Link to Github Repo
-
-    PinkSO Weather Gadget Repo(https://github.com/soph-k/sophk_weather_gadget)
+`
+    [PinkSO Weather Gadget Repo](https://github.com/soph-k/sophk_weather_gadget)
 
 
 ## Bugs 
