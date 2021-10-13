@@ -21,19 +21,19 @@ Description: sophk_fun_quiz
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./assests/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="icon" href="./assets/images/favicon.jpg">
-    <title>Home | PinkSO Weather Gadget</title>
+    <title>Blue Rose Weather Gadget</title>
   </head>
 
   <body>
     <div class="main_container">
       <div class="main_content">
 
-        <header>
-          <div class="navbar">PinkSO Weather Gadget Dashboard</div>
-        </header>
+        <div class="header">
+          Blue Rose Weather Gadget Dashboard
+        </div>
 
         <div class="location_info">
           <div class="locationt_time">
@@ -41,84 +41,92 @@ Description: sophk_fun_quiz
             <span class="am_pm">PM</span>
           </div>
           <div class="current_day">
-            Sunday October 10th, 2021
+            Current Date
           </div>
           <div class="users_location">
             <div class="location">
-              Middle East/Iran
+              Location
             </div>
             <div class="location_value">
-              Value
+              <span class="lat">Value</span>,
+              <span class="lon">Value</span>
             </div>
           </div>
         </div>
 
-        <div class="mid_section">
-          <form class="container-fluid ">
-            <div class="form-group">
-              <input type="text" class="form-control" id="searchText" placeholder="Search a place...">
-            </div>
+        <div class=search_background>
+        <div class="search_container">          
+          <form class="search_form">
+            <input type="search" class=" search_bar" placeholder="Search a location...">
             <button class="search_btn"><i class="fas fa-search"></i></button>
             <div class="search_history"></div>
           </form>
-          
-        <div class="other_weather_data">
-          <div class="other_weather_item">
-            <span class="weather_item_title">Humidity</span>
-            <span class="weather_item_value">95.2%</span>
+          <div class="results_container">
+            <div class="current_forecast">
+              <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
+              <div class="today_temp">Value</div>
+              <div class="tonight_temp">Value</div>
+            </div>
+            <div class="other_weather_data">
+              <div class="other_weather_item">
+                <span class="weather_item_title">Humidity</span>
+                <span class="weather_item_value">Value</span>
+              </div>
+              <div class="other_weather_item">
+                <span class="weather_item_title">Pressure</span>
+                <span class="weather_item_value">Value</span>
+              </div>
+              <div class="other_weather_item">
+                <span class="weather_item_title">Wind Speed</span>
+                <span class="weather_item_value">Value</span>
+              </div>
+            </div>
           </div>
-          <div class="other_weather_item">
-            <span class="weather_item_title">Pressure</span>
-            <span class="weather_item_value">95.2%</span>
-          </div>
-          <div class="other_weather_item">
-            <span class="weather_item_title">Wind Speed</span>
-            <span class="weather_item_value">95.2%</span>
-          </div>
+        </div>
         </div>
 
         <div class="forecast">
           <div class="weeks_forecast">
-            <div class="day">Monday</div>
+            <div class="day_of_week">Monday</div>
             <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-            <div class="temp">Day 25.6 &#176;F</div>
-            <div class="night">Night 35.6&#176;F</div>
+            <div class="day">Day<span class="day_temp">Value</span></div>
+            <div class="night">Night <span class="night_temp">Value</span></div>
           </div>
           <div class="weeks_forecast">
-            <div class="day">Tuesday</div>
+            <div class="day_of_week">Tuesday</div>
             <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-            <div class="temp">Day 25.6 &#176;F</div>
-            <div class="night">Night 35.6&#176;F</div>
+            <div class="day">Day<span class="day_temp">Value</span></div>
+            <div class="night">Night <span class="night_temp">Value</span></div>
           </div>
           <div class="weeks_forecast">
-            <div class="day">Wednesday</div>
+            <div class="day_of_week">Wednesday</div>
             <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-            <div class="temp">Day 25.6 &#176;F</div>
-            <div class="night">Night 35.6&#176;F</div>
+            <div class="day">Day<span class="day_temp">Value</span></div>
+            <div class="night">Night <span class="night_temp">Value</span></div>
           </div>
           <div class="weeks_forecast">
-            <div class="day">Thursday</div>
+            <div class="day_of_week">Thursday</div>
             <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-            <div class="temp">Day 25.6 &#176;F</div>
-            <div class="night">Night 35.6&#176;F</div>
+            <div class="day">Day<span class="day_temp">Value</span></div>
+            <div class="night">Night <span class="night_temp">Value</span></div>
           </div>
           <div class="weeks_forecast">
-            <div class="day">Saturday</div>
+            <div class="day_of_week">Saturday</div>
             <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-            <div class="temp">Day 25.6 &#176;F</div>
-            <div class="night">Night 35.6&#176;F</div>
+            <div class="day">Day<span class="day_temp">Value</span></div>
+            <div class="night">Night <span class="night_temp">Value</span></div>
           </div>
           <div class="weeks_forecast">
-            <div class="day">Saturday</div>
+            <div class="day_of_week">Saturday</div>
             <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-            <div class="temp">Day 25.6 &#176;F</div>
-            <div class="night">Night 35.6&#176;F</div>
+            <div class="day">Day<span class="day_temp">Value</span></div>
+            <div class="night">Night <span class="night_temp">Value</span></div>
           </div>
           <div class="weeks_forecast">
-            <div class="day">Saturday</div>
+            <div class="day_of_week">Saturday</div>
             <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-            <div class="temp">Day 25.6 &#176;F</div>
-            <div class="night">Night 35.6&#176;F</div>
+            <div class="day">Day<span class="day_temp">Value</span></div>
+            <div class="night">Night <span class="night_temp">Value</span></div>
           </div>
         </div>
       </div>

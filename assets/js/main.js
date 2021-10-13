@@ -7,6 +7,14 @@ const locationName = "";
 
 
 ///////////////////////////////// API ////////////////////////////
+function geoLocation () {
+  navigator.geolocation.getCurrentPosition((geo) => {
+    let {latitude, longitude} = geo.coords;
+
+    fetch("https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}")
+  })
+}
+
 let currentWeather = {
   'apiKey': "00ef83945ac64f890995ea9f7422b1b0",
   fetchWeather:  function () {
