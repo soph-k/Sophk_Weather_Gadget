@@ -30,3 +30,8 @@ A simple fun weather dashboard created with html, css, and javascript.
     [Blue Rose Repo](https://github.com/soph-k/sophk_weather_gadget)
 
 
+### Bugs 
+    - Add Comments
+
+    -Fix JS
+    
