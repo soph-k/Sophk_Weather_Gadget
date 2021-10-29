@@ -1,4 +1,4 @@
-# Blue Rose Weather Gadget
+# Weather Gadget
 
 ![license](https://img.shields.io/badge/license-MIT-red)
 
