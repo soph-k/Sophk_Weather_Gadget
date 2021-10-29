@@ -3,8 +3,8 @@
 ![license](https://img.shields.io/badge/license-MIT-red)
 
 <p align="center">
-    <img src="https://img.shields.io/github/repo-size/soph-k/blue_rose_weather_gadget"/>
-    <img src="https://img.shields.io/github/last-commit/soph-k/blue_rose_weather_gadget"/>
+    <img src="https://img.shields.io/github/repo-size/soph-k/_weather_gadget"/>
+    <img src="https://img.shields.io/github/last-commit/soph-k/weather_gadget"/>
 </p>
 <p align="center">
     <img src="https://img.shields.io/badge/HTML-yellow"/>
