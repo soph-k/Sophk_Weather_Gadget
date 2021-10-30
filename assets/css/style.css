@@ -71,7 +71,7 @@ q:before, q:after {
 }
 
 /***************************** 2.0 - Global ******************************/
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@100&display=swap');
 
 * {
   box-sizing: border-box; 
@@ -81,6 +81,7 @@ q:before, q:after {
 
 body {
   font-family: "QuickSand", sans-serif;
+  font-weight: 100;
   background: url("../images/home.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -88,15 +89,11 @@ body {
   height: 100vh;
 }
 
-.main_container {
-  font-weight: 100;
-}
-
 .header { 
   background-color: rgba(26, 25, 25, 0.582);
   border-bottom: rgb(255, 255, 255) .08em solid;
   top: 0;
-  height: 2em;
+  height: 1.8em;
   padding: .5em;
   width: 100%;
   font-size: 2em;
@@ -104,42 +101,17 @@ body {
   text-align: center;
 }
 
-.location_info {
-  padding: 3em 7em;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 2em 0;
-}
-
-.time {
-  font-size: 3em;
-}
-
-.am_pm {
-  font-size: 1em;
-}
-
-.current_day {
-  font-size: 2em;
-}
-
-.location {
-  font-size: 2em;
-}
-
 .search_background {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  
 }
 
 .search_container {
   padding: 2em;
   flex-direction: column;
-  width: 35%;
+  width: 75%;
   padding: .5em;
   border-radius: 10px;
   border: 2px solid rgb(255, 255, 255);
@@ -270,27 +242,5 @@ input.search_bar {
 
 
 @media screen and (max-width:720px) {
-  .header {
-    height: 3em;
-  }
 
-  .location_info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .locationt_time {
-    padding: 1em;
-
-  }
-
-  .current_day {
-    padding: 1em;
-    justify-content: start;
-  }
-
- .users_location {
-   padding: 1em;
- }
 }

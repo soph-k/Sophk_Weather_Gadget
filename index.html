@@ -1,18 +1,11 @@
 <!-----------------------------------------------------------
-  _____      ______      __       ____       ____       _
-||     \\   | _____|    //\\     | ___\\   / ____|    // \\
-||      \\  ||__       //  \\    ||    || | |___    / /   \ \
-||       || | __|     //____\\   ||___//   \ ____\ | |     | |
-||      //  ||_____  //      \\  || \\     _____ || \ \   / /
-||_____//   |______|//        \\ ||   \\  |_____ /    \\_//
-
 Author: Sophia Kiani
 Date: 09/16/2021
 Description: sophk_fun_quiz
 ------------------------------------------------------------->
 
 <!DOCTYPE html>
-<html lang="fa-IR">
+<html lang="en-US">
 
   <head>
     <meta charset="UTF-8">
@@ -32,57 +25,43 @@ Description: sophk_fun_quiz
       <div class="main_content">
 
         <div class="header">
-          Blue Rose Weather Gadget Dashboard
-        </div>
-
-        <div class="location_info">
-          <div class="locationt_time">
-            <span class="time">1:00</span>
-            <span class="am_pm">PM</span>
-          </div>
-          <div class="current_day">
-            Current Date
-          </div>
-          <div class="users_location">
-            <div class="location">
-              Location
-            </div>
-            <div class="location_value">
-              <span class="lat">Value</span>,
-              <span class="lon">Value</span>
-            </div>
-          </div>
+          Weather Gadget Dashboard
         </div>
 
         <div class=search_background>
-        <div class="search_container">          
-          <form class="search_form">
-            <input type="search" class=" search_bar" placeholder="Search a location...">
-            <button class="search_btn"><i class="fas fa-search"></i></button>
-            <div class="search_history"></div>
-          </form>
-          <div class="results_container">
-            <div class="current_forecast">
-              <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-              <div class="today_temp">Value</div>
-              <div class="tonight_temp">Value</div>
-            </div>
-            <div class="other_weather_data">
-              <div class="other_weather_item">
-                <span class="weather_item_title">Humidity</span>
-                <span class="weather_item_value">Value</span>
-              </div>
-              <div class="other_weather_item">
-                <span class="weather_item_title">Pressure</span>
-                <span class="weather_item_value">Value</span>
-              </div>
-              <div class="other_weather_item">
-                <span class="weather_item_title">Wind Speed</span>
-                <span class="weather_item_value">Value</span>
-              </div>
+          <div class="search_container">          
+            <fieldset class="search_form">
+              <input type="search" class="search_bar" placeholder="Search a location...">....</input>
+              <button class="search_btn"><i class="fas fa-search"></i>
+              </button>
+              <div class="search_history"></div>
+            </fieldset>
+            <div class="results_container">
+              <section class="current_forecast">
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="current_weather_icon">
+                <div class="description">Value</div>
+                <div class="today_temp">Value</div>
+              </section>
+              <section class="other_weather_data">
+                <div class="other_weather_item">
+                  <span class="weather_item_title humidity">Humidity</span>
+                  <span class="weather_item_value humidity_value">Value</span>
+                </div>
+                <div class="other_weather_item">
+                  <span class="weather_item_title pressure">Pressure</span>
+                  <span class="weather_item_value pressure_value">Value</span>
+                </div>
+                <div class="other_weather_item">
+                  <span class="weather_item_title wind">Wind Speed</span>
+                  <span class="weather_item_value wind_speed">Value</span>
+                </div>
+                <div class="other_weather_item">
+                  <span class="weather_item_title uv">UV</span>
+                  <span class="weather_item_value uv_value">Value</span>
+                </div>
+              </section>
             </div>
           </div>
-        </div>
         </div>
 
         <div class="forecast">
@@ -133,9 +112,7 @@ Description: sophk_fun_quiz
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="./assests/js/main.js"></script>
+    <script src="./assets/js/main.js"></script>
   </body>
 </html>
-
-
   
