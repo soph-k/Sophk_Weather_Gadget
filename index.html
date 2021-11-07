@@ -21,95 +21,99 @@ Description: sophk_fun_quiz
   </head>
 
   <body>
-    <div class="main_container">
-      <div class="main_content">
-
-        <div class="header">
-          Weather Gadget Dashboard
+    <header class="header">
+      Weather Gadget Dashboard
+    </header>
+    <section class='current_weather_background'>          
+      <fieldset class="search_form">
+        <input type="text" class="search_input" placeholder="Search a location..."> </input>
+        <button class="search_btn"><i class="fas fa-search"></i>
+        </button>
+      </fieldset>
+      <div class="current_weather_container">
+        <div class="search_history">
+          Mn <br>
+          mn <br>
         </div>
-
-        <div class=search_background>
-          <div class="search_container">          
-            <fieldset class="search_form">
-              <input type="search" class="search_bar" placeholder="Search a location...">....</input>
-              <button class="search_btn"><i class="fas fa-search"></i>
-              </button>
-              <div class="search_history"></div>
-            </fieldset>
-            <div class="results_container">
-              <section class="current_forecast">
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="current_weather_icon">
-                <div class="description">Value</div>
-                <div class="today_temp">Value</div>
-              </section>
-              <section class="other_weather_data">
-                <div class="other_weather_item">
-                  <span class="weather_item_title humidity">Humidity</span>
-                  <span class="weather_item_value humidity_value">Value</span>
-                </div>
-                <div class="other_weather_item">
-                  <span class="weather_item_title pressure">Pressure</span>
-                  <span class="weather_item_value pressure_value">Value</span>
-                </div>
-                <div class="other_weather_item">
-                  <span class="weather_item_title wind">Wind Speed</span>
-                  <span class="weather_item_value wind_speed">Value</span>
-                </div>
-                <div class="other_weather_item">
-                  <span class="weather_item_title uv">UV</span>
-                  <span class="weather_item_value uv_value">Value</span>
-                </div>
-              </section>
+        <div class="city_results_container">
+          <div class="current_header">
+            <div class="city_name">Minneapolis</div>
+            <div class="lat_lon">
+              <span class="lat">1</span>,
+              <span class="lon">1</span>
+              <div class="date_value">Value</div>
             </div>
           </div>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="current_weather_icon">
+            <div class="description">Value</div>
+            <div class="today_temp">Value</div>
         </div>
-
-        <div class="forecast">
-          <div class="weeks_forecast">
-            <div class="day_of_week">Monday</div>
-            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-            <div class="day">Day<span class="day_temp">Value</span></div>
-            <div class="night">Night <span class="night_temp">Value</span></div>
+        <div class="other_weather_data">
+          <div class="other_weather_item">
+            <span class="weather_item_title humidity">Humidity</span>
+            <span class="weather_item_value humidity_value">Value</span>
           </div>
-          <div class="weeks_forecast">
-            <div class="day_of_week">Tuesday</div>
-            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-            <div class="day">Day<span class="day_temp">Value</span></div>
-            <div class="night">Night <span class="night_temp">Value</span></div>
+          <div class="other_weather_item">
+            <span class="weather_item_title pressure">Pressure</span>
+            <span class="weather_item_value pressure_value">Value</span>
           </div>
-          <div class="weeks_forecast">
-            <div class="day_of_week">Wednesday</div>
-            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-            <div class="day">Day<span class="day_temp">Value</span></div>
-            <div class="night">Night <span class="night_temp">Value</span></div>
+          <div class="other_weather_item">
+            <span class="weather_item_title wind">Wind Speed</span>
+            <span class="weather_item_value wind_speed">Value</span>
           </div>
-          <div class="weeks_forecast">
-            <div class="day_of_week">Thursday</div>
-            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-            <div class="day">Day<span class="day_temp">Value</span></div>
-            <div class="night">Night <span class="night_temp">Value</span></div>
-          </div>
-          <div class="weeks_forecast">
-            <div class="day_of_week">Saturday</div>
-            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-            <div class="day">Day<span class="day_temp">Value</span></div>
-            <div class="night">Night <span class="night_temp">Value</span></div>
-          </div>
-          <div class="weeks_forecast">
-            <div class="day_of_week">Saturday</div>
-            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-            <div class="day">Day<span class="day_temp">Value</span></div>
-            <div class="night">Night <span class="night_temp">Value</span></div>
-          </div>
-          <div class="weeks_forecast">
-            <div class="day_of_week">Saturday</div>
-            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
-            <div class="day">Day<span class="day_temp">Value</span></div>
-            <div class="night">Night <span class="night_temp">Value</span></div>
+          <div class="other_weather_item">
+            <span class="weather_item_title uv">UV</span>
+            <span class="weather_item_value uv_value">Value</span>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+    <section class="forecast_background">
+      <div class="forecast">
+        <div class="weeks_forecast">
+          <div class="day_of_week">Monday</div>
+          <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
+          <div class="day">Day<span class="day_temp">Value</span></div>
+          <div class="night">Night <span class="night_temp">Value</span></div>
+        </div>
+        <div class="weeks_forecast">
+          <div class="day_of_week">Tuesday</div>
+          <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
+          <div class="day">Day<span class="day_temp">Value</span></div>
+          <div class="night">Night <span class="night_temp">Value</span></div>
+        </div>
+        <div class="weeks_forecast">
+          <div class="day_of_week">Wednesday</div>
+          <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
+          <div class="day">Day<span class="day_temp">Value</span></div>
+          <div class="night">Night <span class="night_temp">Value</span></div>
+        </div>
+        <div class="weeks_forecast">
+          <div class="day_of_week">Thursday</div>
+          <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
+          <div class="day">Day<span class="day_temp">Value</span></div>
+          <div class="night">Night <span class="night_temp">Value</span></div>
+        </div>
+        <div class="weeks_forecast">
+          <div class="day_of_week">Saturday</div>
+          <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
+          <div class="day">Day<span class="day_temp">Value</span></div>
+          <div class="night">Night <span class="night_temp">Value</span></div>
+        </div>
+        <div class="weeks_forecast">
+          <div class="day_of_week">Saturday</div>
+          <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
+          <div class="day">Day<span class="day_temp">Value</span></div>
+          <div class="night">Night <span class="night_temp">Value</span></div>
+        </div>
+        <div class="weeks_forecast">
+          <div class="day_of_week">Saturday</div>
+          <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" class="weather_icon">
+          <div class="day">Day<span class="day_temp">Value</span></div>
+          <div class="night">Night <span class="night_temp">Value</span></div>
+        </div>
+      </div>
+    </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./assets/js/main.js"></script>
