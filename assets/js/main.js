@@ -31,53 +31,63 @@ const locationName = searchbarEl.val();
 
 
 ///////////////////////////////// API ////////////////////////////
-searchbarEl.change((event, locationName) => {
+searchbarEl.change((event) => {
   event.preventDefault();
     if (event.keyCode === 13 || searchBtn.click()) {
       $.ajax({
-        url: `https://api.openweathermap.org/data/2.5/forecast?q=${locationName}&appid=${apiKey}&units=imperial`,
-        method: 'GET'
-      }).then((response) => response.json()).then(data => {
-        console.log(data)
-        const city = data.name;
-        const country = data.city.country;
-        const description = data.city.weather[0].description;
-        const icon = "https://openweathermap.org/img/wn/" + day.weather[0].icon + ".png";
-        const temp = data.temperature.value;
-        const tempUnit = data.temperature.unit;
-        const humidity = data.humidity.value;
-        const humidityUnit = data.humidity.unit
-        const pressure = data.pressure.value;
-        const pressureUnit = data.pressure.unit;
-        const wind = data.wind.speed.value;
-        const windUnit = data.wind.speed.unit;
-        const uv = data.uv.
-
-        searchedLocation.html(`${city}, ${country}`);
-        searchedlat.html(`${lat}`);
-        searchedlon.html(`${lon}`);
-        searchedTime.html(`${time}`);
-        searchedDescription.html(`${description}`);
-        searchedIcon.html(`${icon}`);
-        searchedWeather.html(`${temp} ${tempUnit}`);
-
-        if (uv < 3) {
-          uvValueEl.addClass() 
-        } else if (uv < 6) {
-          uvValueEl.addClass()  
-        } else if (uv < 8) {
-          uvValueEl.addClass()  
-        } else if (uv < 11) {
-          uvValueEl.addClass()  
-        } else {
-          uvValueEl.addClass()
+        url: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=00ef83945ac64f890995ea9f7422b1b0",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+          console.log(data);
         }
+        //   const city = data.name;
+        //   const country = data.country;
+        //   const description = data.weather[0].description;
+        //   const icon = "https://openweathermap.org/img/wn/" + day.weather[0].icon + ".png";
+        //   const temp = data.temperature.value;
+        //   const tempUnit = data.temperature.unit;
+        //   const humidity = data.humidity.value;
+        //   const humidityUnit = data.humidity.unit
+        //   const pressure = data.pressure.value;
+        //   const pressureUnit = data.pressure.unit;
+        //   const wind = data.wind.speed.value;
+        //   const windUnit = data.wind.speed.unit;
+        //   const uv = data.uv.
+
+        //   searchedLocation.html(`${city}, ${country}`);
+        //   searchedlat.html(`${lat}`);
+        //   searchedlon.html(`${lon}`);
+        //   searchedTime.html(`${time}`);
+        //   searchedDescription.html(`${description}`);
+        //   searchedIcon.html(`${icon}`);
+        //   searchedWeather.html(`${temp} ${tempUnit}`);
+
+        //   if (uv < 3) {
+        //     uvValueEl.addClass() 
+        //   } else if (uv < 6) {
+        //     uvValueEl.addClass()  
+        //   } else if (uv < 8) {
+        //     uvValueEl.addClass()  
+        //   } else if (uv < 11) {
+        //     uvValueEl.addClass()  
+        //   } else {
+        //     uvValueEl.addClass()
+        //   }
+        // }
       })
-    .catch((err) => alert('City does not exist'));
+      .catch((err) => alert('City does not exist'));
     }
-  // locationValues(locationName, lat, lon);
 })
 
+
+// $.ajax({
+//   url: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=00ef83945ac64f890995ea9f7422b1b0",
+//   type: "GET",
+//   dataType: "json",
+//   success: function(data) {
+    
+  // locationValues(locationName, lat, lon);
 
 // function locationValues(locationName, lat, lon) {
 //   $.ajax({
@@ -86,6 +96,7 @@ searchbarEl.change((event, locationName) => {
 //   }).then((response) => response.json()).then(data => {
 //     const lat = data.city.coord.lat;
 //     const lon = data.city.coord.lon;
+
 
     
 //     })
