@@ -88,6 +88,10 @@ body {
   background-size: cover;
 }
 
+.hidden {
+  display: none;
+}
+
 /***************************** 2.0 - Header ******************************/
 .header { 
   background-color: rgba(26, 25, 25, 0.582);
@@ -107,6 +111,24 @@ body {
 
 
 /***************************** 3.0 - Current Weather ******************************/
+.current_weather_flex{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.current_weather_background {
+  border: 2px solid rgb(255, 255, 255);
+  color: white;
+  background: rgba(24, 24, 24, 0.5);
+  padding: .1em;
+  width: 80%;
+  border-radius: 10px;
+  margin-top: 4em;
+}
+
 .search_form {
   display: flex;
   width: 100%;
@@ -137,20 +159,6 @@ input.search_input {
   font-size: .8em;
 }
 
-
-.current_weather_background {
-  border: 2px solid rgb(255, 255, 255);
-  color: white;
-  flex-direction: row;
-  background: rgba(24, 24, 24, 0.5);
-  padding: .1em;
-  width: 100%;
-  border-radius: 10px;
-  justify-content: center;
-  align-content: center;
-  margin-top: 4em;
-}
-
 .current_weather_container {
   display: flex;
   justify-content: center;
@@ -158,11 +166,15 @@ input.search_input {
   margin: 1em 0;
 }
 
+.description_section{
+  display:flex;
+}
+
 .search_history {
   background: rgba(24, 24, 24, 0.5);
   border-radius: 10px;
   border: 2px solid rgb(255, 255, 255);
-  width: 30%;
+  width: 15%;
   color: white;
   padding-right: 2em;
   max-height: 90%
@@ -191,16 +203,13 @@ input.search_input {
   background: rgba(24, 24, 24, 0.5);
   padding: 1em;
   border-radius: 10px;
-  
   border: 2px solid rgb(255, 255, 255);
   overflow: hidden;
-  width: 30%;
+  width: 15%;
   color: white;
   max-height:90%;
   padding-left: 2em;
 }
-
-
 
 .other_weather_item {
   display: flex;
@@ -213,7 +222,21 @@ input.search_input {
   padding: 0.9;
 }
 
+.favorable {
+  background-color: green;
+}
 
+.moderate {
+  background-color: yellow;
+}
+
+.severe {
+  background-color: red;
+}
+
+.transparent {
+  background-color: transparent;
+}
 
 
 /***************************** 3.0 - Current Weather ******************************/

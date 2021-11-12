@@ -1,140 +1,130 @@
 //////////////////////////////// Global Variables ////////////////////////////
-// Current Time Variables
-const searchedLocation = $('.locationt_time');
-const searchedlat = $('.lat');
-const searchedlon = $('.lon')
-const searchedTime = $('.time');
-const searchedDescription = $('.description')
-const searchedIcon = $('.current_weather_data')
-const searchedWeather = $('.today_temp')
-
-const humidityEl = $('.humidity');
-const humidityValueEl = $('.humidity_value');
-const pressureEl = $('.pressure');
-const pressureValueEl = $('.pressure_value');
-const windEl = $('.wind');
-const windValueEl = $('.wind_value');
-const uvEl = $('.uv');
-const uvValueEl = $('.uv_value');
-const lat =$('.lat')
-const lon =$('.lon')
-
-
-
-const weeklyDayEl = $('.weeks_forecast');
-
-const searchBtn = $('.search_btn');
-const searchbarEl = $('.search_input')
-// API Variables
+// API Global Variables
 const apiKey = "00ef83945ac64f890995ea9f7422b1b0";
-const locationName = searchbarEl.val();
-
+const oldSearch = JSON.parse(localStorage.getItem('history') || "[]");
+const cityName = $('.search_input');
 
 ///////////////////////////////// API ////////////////////////////
-searchbarEl.change((event) => {
-  event.preventDefault();
-    if (event.keyCode === 13 || searchBtn.click()) {
-      $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=00ef83945ac64f890995ea9f7422b1b0",
-        type: "GET",
-        dataType: "json",
-        success: function(data) {
-          console.log(data);
-        }
-        //   const city = data.name;
-        //   const country = data.country;
-        //   const description = data.weather[0].description;
-        //   const icon = "https://openweathermap.org/img/wn/" + day.weather[0].icon + ".png";
-        //   const temp = data.temperature.value;
-        //   const tempUnit = data.temperature.unit;
-        //   const humidity = data.humidity.value;
-        //   const humidityUnit = data.humidity.unit
-        //   const pressure = data.pressure.value;
-        //   const pressureUnit = data.pressure.unit;
-        //   const wind = data.wind.speed.value;
-        //   const windUnit = data.wind.speed.unit;
-        //   const uv = data.uv.
+currentWeather = () => {
+  $('.forecast_background').removeClass('hidden');
+  $.ajax({
+    url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityName.val() + "&appid=" + apiKey + "&units=imperial",
+    type: "POST",
+    dataType: "json",
+    success: function (result, status, xhr) {
+      
+      console.log(result);
+      const cityName = result.name;
+      const country = result.sys.country;
+      const timeZone = (new Date(result.dt * 1000)).toLocaleTimeString();
+      let latVar = result.coord.lat;
+      let lonVar = result.coord.lon;
+      const icon = "https://openweathermap.org/img/wn/" + result.weather[0].icon + ".png";
+      const description = result.weather[0].description;
+      const temp = result.main.temp;
+      const humidity = result.main.humidity;
+      const pressure = result.main.pressure;
+      const wind = result.wind.speed;
+      
 
-        //   searchedLocation.html(`${city}, ${country}`);
-        //   searchedlat.html(`${lat}`);
-        //   searchedlon.html(`${lon}`);
-        //   searchedTime.html(`${time}`);
-        //   searchedDescription.html(`${description}`);
-        //   searchedIcon.html(`${icon}`);
-        //   searchedWeather.html(`${temp} ${tempUnit}`);
+      $('.city_country').html(`${cityName}, ${country}`);
+      $('.timezone').html(`${timeZone}`)
+      $('.lat_lon_values').html(`${latVar}, ${lonVar}`);
+      $('.current_weather_icon').attr(`${icon}`);
+      $('.description').html(`${description}`);
+      $('.today_temp').html(`${temp}&deg;F`);
+      $('.humidity').html(`${humidity}%`);
+      $('.pressure').html(`${pressure}`);
+      $('.wind').html(`${wind}MPH`);
 
-        //   if (uv < 3) {
-        //     uvValueEl.addClass() 
-        //   } else if (uv < 6) {
-        //     uvValueEl.addClass()  
-        //   } else if (uv < 8) {
-        //     uvValueEl.addClass()  
-        //   } else if (uv < 11) {
-        //     uvValueEl.addClass()  
-        //   } else {
-        //     uvValueEl.addClass()
-        //   }
-        // }
+      forecast(result, latVar, lonVar);
+      savedSearch(cityName);
+    },
+    error: function (xhr, status, error) {
+      alert("Error: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+    } 
+  })
+}
+
+
+forecast = (result, latVar, lonVar) => {
+  $.ajax({
+    url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + latVar + "&lon=" + lonVar + "&appid=" + apiKey + "&units=imperial",
+    type: "GET",
+    dataType: "json",
+    success: function(result) {
+      console.log(result)
+
+      const uv = result.current.uvi
+      $('.uv').html(`${uv}`);
+
+      $('.uv').html(`${uv}`);
+      if (uv < 4) {
+        $('.uv').addClass('favorable') 
+      } else if (uv < 8) {
+        $('.uv').addClass('moderate')  
+      } else if (uv < 12) {
+        $('.uv').addClass('severe')  
+      } else {
+        $('.uv').addClass('transparent')  
+      } 
+     
+      Date.prototype.toShortDate = function () {
+        return (this.getMonth() + 1) +
+        "/" + this.getDate() +
+        "/" + this.getFullYear();
+      }
+
+      $('.weeks_forecast').each((index) => {
+        const formatDate = (new Date(result.daily[index].dt).toShortDate());
+        const dayIcon = "https://openweathermap.org/img/wn/" + result.daily[index].weather[0].icon  + "@2x.png";
+        const dayTemp = result.daily[index].temp.day;
+        const dayWind = result.daily[index].wind_speed;
+        const dayHumidty = result.daily[index].humidity; 
+      
+
+        $('.day_of_week').html(`${formatDate}`);
+        $('.day_icon').attr("src", `${dayIcon}`)
+        $('.day_temp').html(`src, ${dayTemp}`);
+        $('.day_humidity').html(`${dayWind}`);
+        $('.day_wind').html(`${dayHumidty}`);
       })
-      .catch((err) => alert('City does not exist'));
     }
+  })
+}
+
+
+// /////////////////////////////// Local Storage ///////////////////////////
+savedSearch = (cityName) => {
+  oldSearch.push(cityName);
+  localStorage.setItem('history', JSON.stringify(oldSearch));
+  displaySearchHistory();
+}
+
+// Display search history as buttons from localStorage
+displaySearchHistory = () => {
+  $('.saved_city').html(oldSearch.map(historyBtn => {
+    return `<button><li class="saved_city">${historyBtn.cityName}</li></button>`
+  })
+   .join(""))
+}
+
+
+// /////////////////////////////// Event Listeners ////////////////////////
+$('.saved_city').click((event) =>{
+  event.preventDefault();
+  currentWeather();
 })
 
 
-// $.ajax({
-//   url: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=00ef83945ac64f890995ea9f7422b1b0",
-//   type: "GET",
-//   dataType: "json",
-//   success: function(data) {
-    
-  // locationValues(locationName, lat, lon);
-
-// function locationValues(locationName, lat, lon) {
-//   $.ajax({
-//     url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=imperial",
-//     method: 'GET'
-//   }).then((response) => response.json()).then(data => {
-//     const lat = data.city.coord.lat;
-//     const lon = data.city.coord.lon;
+$('.search_input').change((event) => {
+  event.preventDefault();
+  if (event.keyCode === 13 || $('.search_btn').click())  {
+    currentWeather();
+  }
+})
 
 
-    
-//     })
+// /////////////////////////// Start Function on Load ////////////////////////////
+displaySearchHistory();
 
-
-    
- 
-
-  
-
-
-
-// function weeklyWeatherData(data) {
-//   weeklyDayEl.each(day => day
-
-//   )
-// }
-// ///////////////////////////////// Local Storage ////////////////////////////
-
-// function saveHighScore () {
-//   const highScore = {
-//     hsname: inputInitalEl.val(),
-//     hsscore: score
-//   }
-//   oldScores.push(highScore);
-//   oldScores.sort(function (a, b) {
-//     return b.hsscore - a.hsscore
-//   })
-//   oldScores.splice(5);
-//   localStorage.setItem("highScoresDB", JSON.stringify(oldScores));
-//   highscores();
-// }
-
-// // Takes scores from local stoarage and displays it in highscores list
-// function highscores() {
-//   displayHighScore.html(oldScores
-//     .map(highScoreArray => {
-//       return `<li>${highScoreArray.hsname}: ${highScoreArray.hsscore}</li>`;     
-//     })
-//   .join(""))
-// }
