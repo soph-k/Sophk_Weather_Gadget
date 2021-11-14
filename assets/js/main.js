@@ -2,18 +2,15 @@
 // API Global Variables
 const apiKey = "00ef83945ac64f890995ea9f7422b1b0";
 const oldSearch = JSON.parse(localStorage.getItem('history') || "[]");
-const cityName = $('.search_input');
 
 ///////////////////////////////// API ////////////////////////////
-currentWeather = () => {
+currentWeather = (cityName) => {
   $('.forecast_background').removeClass('hidden');
   $.ajax({
-    url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityName.val() + "&appid=" + apiKey + "&units=imperial",
+    url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityName  + "&appid=" + apiKey + "&units=imperial",
     type: "POST",
     dataType: "json",
     success: function (result, status, xhr) {
-      
-      console.log(result);
       const cityName = result.name;
       const country = result.sys.country;
       const timeZone = (new Date(result.dt * 1000)).toLocaleTimeString();
@@ -30,14 +27,15 @@ currentWeather = () => {
       $('.city_country').html(`${cityName}, ${country}`);
       $('.timezone').html(`${timeZone}`)
       $('.lat_lon_values').html(`${latVar}, ${lonVar}`);
-      $('.current_weather_icon').attr(`${icon}`);
+      $('.current_weather_icon').attr("src", icon);
       $('.description').html(`${description}`);
       $('.today_temp').html(`${temp}&deg;F`);
       $('.humidity').html(`${humidity}%`);
       $('.pressure').html(`${pressure}`);
       $('.wind').html(`${wind}MPH`);
 
-      forecast(result, latVar, lonVar);
+      forecast(latVar, lonVar);
+      fiveForecast(cityName)
       savedSearch(cityName);
     },
     error: function (xhr, status, error) {
@@ -47,14 +45,12 @@ currentWeather = () => {
 }
 
 
-forecast = (result, latVar, lonVar) => {
+forecast = (latVar, lonVar) => {
   $.ajax({
     url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + latVar + "&lon=" + lonVar + "&appid=" + apiKey + "&units=imperial",
     type: "GET",
     dataType: "json",
     success: function(result) {
-      console.log(result)
-
       const uv = result.current.uvi
       $('.uv').html(`${uv}`);
 
@@ -68,27 +64,44 @@ forecast = (result, latVar, lonVar) => {
       } else {
         $('.uv').addClass('transparent')  
       } 
-     
+    }
+  })
+}
+
+
+fiveForecast = (cityName) => {
+  $.ajax({
+    url: "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + apiKey + "&units=imperial",
+    type: "GET",
+    dataType: "json",
+    success: function(result) {
+      // console.log(result)
       Date.prototype.toShortDate = function () {
         return (this.getMonth() + 1) +
         "/" + this.getDate() +
         "/" + this.getFullYear();
       }
 
-      $('.weeks_forecast').each((index) => {
-        const formatDate = (new Date(result.daily[index].dt).toShortDate());
-        const dayIcon = "https://openweathermap.org/img/wn/" + result.daily[index].weather[0].icon  + "@2x.png";
-        const dayTemp = result.daily[index].temp.day;
-        const dayWind = result.daily[index].wind_speed;
-        const dayHumidty = result.daily[index].humidity; 
+      $('.forecast').html('');
       
+      for(let i=0; i<result.list.length; i+=8) {
+        const formatDate = (new Date(result.list[i].dt * 1000)).toShortDate();
+        const dayIcon = "https://openweathermap.org/img/wn/" + result.list[i].weather[0].icon  + "@2x.png";
+        const dayTemp = result.list[i].main.temp;
+        const dayWind = result.list[i].wind.speed;
+        const dayHumidty = result.list[i].main.humidity; 
 
-        $('.day_of_week').html(`${formatDate}`);
-        $('.day_icon').attr("src", `${dayIcon}`)
-        $('.day_temp').html(`src, ${dayTemp}`);
-        $('.day_humidity').html(`${dayWind}`);
-        $('.day_wind').html(`${dayHumidty}`);
-      })
+        const fml = `        
+          <div class="weeks_forecast">
+            <div class="day_of_week">${formatDate}</div>
+            <img class="day_icon" src="${dayIcon}"></img>
+            <div class="day_temp">${dayTemp}</div>
+            <div class="day_humidity">${dayWind}</div>
+            <div class="day_wind">${dayHumidty}</div>
+          </div>`
+        
+        $('.forecast').append(fml)
+      }
     }
   })
 }
@@ -96,15 +109,20 @@ forecast = (result, latVar, lonVar) => {
 
 // /////////////////////////////// Local Storage ///////////////////////////
 savedSearch = (cityName) => {
+  for (var i = 0; i < oldSearch.length; i++) {
+    if (cityName === oldSearch[i]) {
+      return;
+    }
+  }
   oldSearch.push(cityName);
   localStorage.setItem('history', JSON.stringify(oldSearch));
-  displaySearchHistory();
+  displaySearchHistory(cityName);
 }
 
 // Display search history as buttons from localStorage
 displaySearchHistory = () => {
   $('.saved_city').html(oldSearch.map(historyBtn => {
-    return `<button><li class="saved_city">${historyBtn.cityName}</li></button>`
+    return `<button><class="saved_city">${historyBtn}</button>`
   })
    .join(""))
 }
@@ -113,18 +131,20 @@ displaySearchHistory = () => {
 // /////////////////////////////// Event Listeners ////////////////////////
 $('.saved_city').click((event) =>{
   event.preventDefault();
-  currentWeather();
-})
+  let cityName = event.target.textContent;
+  currentWeather(cityName);
+  })
 
 
 $('.search_input').change((event) => {
   event.preventDefault();
   if (event.keyCode === 13 || $('.search_btn').click())  {
-    currentWeather();
+    let cityName = $('.search_input').val();
+    currentWeather(cityName);
   }
 })
 
 
-// /////////////////////////// Start Function on Load ////////////////////////////
+///////////////////////////// Start Function on Load ////////////////////////////
 displaySearchHistory();
 

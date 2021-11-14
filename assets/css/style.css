@@ -174,7 +174,7 @@ input.search_input {
   background: rgba(24, 24, 24, 0.5);
   border-radius: 10px;
   border: 2px solid rgb(255, 255, 255);
-  width: 15%;
+  width: 20%;
   color: white;
   padding-right: 2em;
   max-height: 90%
@@ -184,7 +184,7 @@ input.search_input {
   justify-content: center;
   align-items: center;
   padding: 2em 0 .5em 0;
-  width: 40%;
+  width: 30%;
   background: rgb(2, 35, 85);
   border: 2px solid rgb(255, 255, 255);
   margin: 0 -2em;
@@ -205,7 +205,7 @@ input.search_input {
   border-radius: 10px;
   border: 2px solid rgb(255, 255, 255);
   overflow: hidden;
-  width: 15%;
+  width: 25%;
   color: white;
   max-height:90%;
   padding-left: 2em;
@@ -283,12 +283,8 @@ input.search_input {
   font: .7;
 }
 
-
-
 @media screen and (max-width:720px) {
   body {
     overflow: scroll;
   }
-
-  
 }
