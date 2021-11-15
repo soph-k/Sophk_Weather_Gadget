@@ -96,15 +96,13 @@ body {
 .header { 
   background-color: rgba(26, 25, 25, 0.582);
   border-bottom: rgb(255, 255, 255) .08em solid;
-  top: 0;
-  height: 2em;
+  display: flex;
+  height: 2.3em;
   width: 100%;
   font-size: 1.3em;
   color: white;
   text-align: center;
   flex-direction: column;
-  flex-wrap: nowrap;
-  width: 100%;
   align-items: center;
   justify-content:center;
 }
@@ -167,7 +165,16 @@ input.search_input {
 }
 
 .description_section{
-  display:flex;
+  text-align: center;
+}
+
+.description {
+  text-align: center;
+}
+
+.today_temp{
+  text-align: center;
+  margin: .2em auto;
 }
 
 .search_history {
@@ -177,7 +184,21 @@ input.search_input {
   width: 20%;
   color: white;
   padding-right: 2em;
-  max-height: 90%
+  display: flex;
+  display: column;
+}
+
+.saved_city {
+  padding: .2em;
+}
+
+.saved_city button {
+  color: white;
+  border-radius: 10px;
+  padding: .5em 1em;
+  margin: .2em;
+  background: rgba(156, 147, 147, 0.5);
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .city_results_container {
@@ -193,6 +214,19 @@ input.search_input {
   border-radius: 10px;
   z-index: 3;
 }
+
+.city_country {
+  font-size: 1.5em;
+  margin: 1em auto .1em;
+  text-align: center;
+}
+
+.current_image{
+  display: flex;
+  justify-content: center;
+}
+
+
 
 .current_header {
   display: flex;
@@ -259,7 +293,7 @@ input.search_input {
 
 .weeks_forecast {
   border: 1px white solid;
-  width: 10%;
+  width: 15%;
   text-align: center;
   border-radius: 10px;
   justify-content: space-between;

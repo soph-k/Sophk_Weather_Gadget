@@ -16,7 +16,7 @@ currentWeather = (cityName) => {
       const timeZone = (new Date(result.dt * 1000)).toLocaleTimeString();
       let latVar = result.coord.lat;
       let lonVar = result.coord.lon;
-      const icon = "https://openweathermap.org/img/wn/" + result.weather[0].icon + ".png";
+      const icon = "https://openweathermap.org/img/wn/" + result.weather[0].icon + "@2x.png";
       const description = result.weather[0].description;
       const temp = result.main.temp;
       const humidity = result.main.humidity;
@@ -29,7 +29,7 @@ currentWeather = (cityName) => {
       $('.lat_lon_values').html(`${latVar}, ${lonVar}`);
       $('.current_weather_icon').attr("src", icon);
       $('.description').html(`${description}`);
-      $('.today_temp').html(`${temp}&deg;F`);
+      $('.today_temp').html(`Temp: ${temp}&deg;F`);
       $('.humidity').html(`${humidity}%`);
       $('.pressure').html(`${pressure}`);
       $('.wind').html(`${wind}MPH`);
@@ -86,7 +86,7 @@ fiveForecast = (cityName) => {
       
       for(let i=0; i<result.list.length; i+=8) {
         const formatDate = (new Date(result.list[i].dt * 1000)).toShortDate();
-        const dayIcon = "https://openweathermap.org/img/wn/" + result.list[i].weather[0].icon  + "@2x.png";
+        const dayIcon = "https://openweathermap.org/img/wn/" + result.list[i].weather[0].icon  + ".png";
         const dayTemp = result.list[i].main.temp;
         const dayWind = result.list[i].wind.speed;
         const dayHumidty = result.list[i].main.humidity; 
@@ -95,9 +95,9 @@ fiveForecast = (cityName) => {
           <div class="weeks_forecast">
             <div class="day_of_week">${formatDate}</div>
             <img class="day_icon" src="${dayIcon}"></img>
-            <div class="day_temp">${dayTemp}</div>
-            <div class="day_humidity">${dayWind}</div>
-            <div class="day_wind">${dayHumidty}</div>
+            <div class="day_temp">Temp: ${dayTemp}&deg;F</div>
+            <div class="day_humidity">Wind Speed: ${dayWind}MPH</div>
+            <div class="day_wind">Humuduty: ${dayHumidty}%</div>
           </div>`
         
         $('.forecast').append(fml)
