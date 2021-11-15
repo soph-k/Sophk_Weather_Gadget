@@ -56,7 +56,7 @@ forecast as well as humidity and wind speeds.
 
 
 ## Preview
-![Blue Rose Demo](.\assests\images\screenshot.png)
+![Blue Rose Demo](./assets/images/screenshot.png)
 
     
 ## Link to Deployed Repo
