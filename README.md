@@ -52,7 +52,7 @@ forecast as well as humidity and wind speeds.
 
 
 ## Link to Deployed Page
-[Demo Live](https://soph-k.github.io/sophk_weather_gadget/)
+[Demo Live](https://soph-k.github.io/weather_gadget/)
 
 
 ## Preview
